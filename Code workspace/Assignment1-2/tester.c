@@ -21,4 +21,8 @@ int main() {
     remove(&v, 6);
     
     printVector(v);
+
+    trimToSize(&v);
+
+    printVector(v);
 }

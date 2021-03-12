@@ -13,3 +13,4 @@ void printVector(vector v);
 void add(vector *v, int i);
 int elementAt(vector v, int index);
 void remove(vector *v, int n);
+void trimToSize(vector *v);

@@ -67,3 +67,20 @@ void remove(vector *v, int n) {
     v->list = tmp;
 
 }
+
+void trimToSize(vector *v) {
+    
+    int *tmp = malloc(sizeof(v->list));
+    int s = v->size;
+
+    for(int i = 0; i < s; i++){
+        
+        tmp[i] = v->list[i];
+
+    }
+
+    free(v->list);
+    v->capacity = s;
+    v->list = tmp;
+
+}
