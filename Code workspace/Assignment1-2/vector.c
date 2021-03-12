@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "vector.h"
+#include <stdlib.h>
 
 void create(vector *v) {
     v->size = 0;
@@ -46,7 +45,25 @@ int elementAt(vector v, int index) {
         return v.list[index];
     } else {
         printf("Invalid index. Choose a number from 0 - %i.", v.size--);
-        return 0;
     }
+}
+
+void remove(vector *v, int n) {
+    
+    int *tmp = malloc(sizeof(v->list));
+    int nSize = 0;
+
+    for(int i = 0; i < v->size; i++){
+        
+        if(v->list[i] != n) {
+            tmp[nSize] = v->list[i];
+            nSize++;
+        }
+
+    }
+
+    free(v->list);
+    v->size = nSize;
+    v->list = tmp;
 
 }
