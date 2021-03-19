@@ -141,8 +141,10 @@ void deleteItem(int data) {
                     curr = prev;//Make current node the old node to continue loop
                 }
             }
-            prev = curr;//Rotate through the nodes
-            curr = curr->next;
+            if(!isEmpty()) {    
+                prev = curr;//Rotate through the nodes
+                curr = curr->next;
+            }
         }
     }
 }
@@ -150,7 +152,7 @@ void deleteItem(int data) {
 void main() {
     createEmpty();
 
-    insertItem(2);
+    /*insertItem(2);
     insertItem(3);
     insertItem(1);
 
@@ -166,5 +168,9 @@ void main() {
 
     deleteItem(2);
 
+    printList();*/
+
+    insertItem(3);
+    deleteItem(3);
     printList();
 }
