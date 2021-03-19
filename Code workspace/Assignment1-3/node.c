@@ -43,9 +43,13 @@ void printList() {
     
     printf("List: [");
     
-    while(point != NULL) {
-        printf("(%i)", point->data);
-        point = point->next;
+    if(isEmpty()) {
+        printf("List is empty");
+    } else {
+        while(point != NULL) {
+            printf("(%i)", point->data);
+            point = point->next;
+        }
     }
 
     printf("]\n");
@@ -114,9 +118,9 @@ void insertItem(int data) {
         prev->next = n;
         n->next = curr;
     }
-printList();
 }
 
+//Delete all with value data
 void deleteItem(int data) {
     node *curr = head;
     node *prev = NULL;
@@ -124,20 +128,20 @@ void deleteItem(int data) {
     if(isEmpty()) {
         printf("List is empty.");
     } else {
-        while(curr != NULL) {
+        while(curr != NULL) {//Loop through list
             
-            if(curr->data == data) {
-                if (prev == NULL) {
-                    head = curr->next;
-                    free(curr);
+            if(curr->data == data) {//If current node has same value
+                if (prev == NULL) {//If it's the first item
+                    head = curr->next;//Set new head to next item
+                    free(curr);//Erase node
                     curr = head;
                 } else {
-                    prev->next = curr->next;
-                    free(curr);
-                    curr = prev;
+                    prev->next = curr->next;//Skip current node
+                    free(curr);//Erase node
+                    curr = prev;//Make current node the old node to continue loop
                 }
             }
-            prev = curr;
+            prev = curr;//Rotate through the nodes
             curr = curr->next;
         }
     }
