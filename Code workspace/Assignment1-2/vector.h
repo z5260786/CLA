@@ -1,4 +1,7 @@
-
+//Ethan Fraser (z5269786)
+//ZEIT3113 - CLA Assignment 1
+//0.5 hours
+//Contains the data type and subprogram signatures for vectors
 
 struct vector {
     int size;

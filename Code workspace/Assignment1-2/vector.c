@@ -1,3 +1,8 @@
+//Ethan Fraser (z5269786)
+//ZEIT3113 - CLA Assignment 1
+//2.5 hours
+//Contains the working subprograms for the vector data structure
+
 #include "vector.h"
 #include <stdlib.h>
 
@@ -70,8 +75,8 @@ void remove(vector *v, int n) {
 
 void trimToSize(vector *v) {
     
-    int *tmp = malloc(sizeof(v->list));
     int s = v->size;
+    int *tmp = (int*)malloc(s*sizeof(int));
 
     for(int i = 0; i < s; i++){
         
@@ -79,8 +84,8 @@ void trimToSize(vector *v) {
 
     }
 
-    free(v->list);
     v->capacity = s;
+    realloc(v->list, (int*)malloc(s*sizeof(int)));
     v->list = tmp;
 
 }
